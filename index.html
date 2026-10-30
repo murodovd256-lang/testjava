@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Master — Java o‘rganish</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <a class="logo" href="#">JAVA<span>MASTER</span></a>
+      <div id="userLabel" class="user-label"></div>
+    </header>
+
+    <main>
+      <section id="welcomeScreen" class="screen welcome">
+        <div class="hero-icon">☕</div>
+        <p class="eyebrow">Dasturlashni noldan o‘rganing</p>
+        <h1>Java olamiga<br><span>xush kelibsiz!</span></h1>
+        <p class="muted">27 ta mavzu, amaliy misollar va bilimni tekshiruvchi testlar.</p>
+        <form id="startForm" class="start-form">
+          <input id="studentName" type="text" placeholder="Ismingizni kiriting" maxlength="50" required>
+          <button class="primary-btn" type="submit">O‘qishni boshlash →</button>
+        </form>
+      </section>
+
+      <section id="courseScreen" class="screen hidden">
+        <div class="dashboard-heading">
+          <div>
+            <p class="eyebrow">O‘QUV MARKAZI</p>
+            <h1>Java kursi</h1>
+            <p class="muted">Mavzularni ketma-ket o‘rganing va testlardan o‘ting.</p>
+          </div>
+          <button id="logoutBtn" class="small-btn">Chiqish</button>
+        </div>
+
+        <div class="stats">
+          <div class="stat-card"><span>O‘zlashtirilgan</span><strong id="passedCount">0/27</strong></div>
+          <div class="stat-card"><span>Jarayon</span><strong id="progressPercent">0%</strong></div>
+          <div class="stat-card"><span>Urinishlar</span><strong id="attemptCount">0</strong></div>
+        </div>
+
+        <div class="progress-track"><div id="progressBar"></div></div>
+        <div id="lessonList" class="lesson-list"></div>
+      </section>
+
+      <section id="lessonScreen" class="screen hidden">
+        <button id="backToCourse" class="back-btn">← Mavzularga qaytish</button>
+        <div class="lesson-heading">
+          <p id="lessonNumber" class="eyebrow"></p>
+          <h1 id="lessonTitle"></h1>
+        </div>
+        <article id="lessonContent" class="lesson-content"></article>
+        <button id="startTestBtn" class="primary-btn">Testni boshlash →</button>
+      </section>
+
+      <section id="testScreen" class="screen hidden">
+        <div class="test-top">
+          <button id="exitTestBtn" class="back-btn">← Darsga qaytish</button>
+          <span id="questionCounter" class="eyebrow"></span>
+        </div>
+        <div class="progress-track"><div id="testProgress"></div></div>
+        <div class="question-card">
+          <p id="questionType" class="eyebrow"></p>
+          <h2 id="questionText"></h2>
+          <div id="questionOptions" class="options"></div>
+          <div id="codeArea" class="code-area hidden"></div>
+          <button id="nextQuestionBtn" class="primary-btn" disabled>Keyingi savol →</button>
+        </div>
+      </section>
+
+      <section id="resultScreen" class="screen hidden">
+        <div class="result-card">
+          <div id="resultIcon" class="result-icon">✓</div>
+          <p class="eyebrow">TEST NATIJASI</p>
+          <h1 id="resultScore">100%</h1>
+          <p id="resultMessage"></p>
+          <button id="resultActionBtn" class="primary-btn">Davom etish →</button>
+        </div>
+      </section>
+
+      <section id="adminScreen" class="screen hidden">
+        <button id="adminBackBtn" class="back-btn">← Kursga qaytish</button>
+        <h1>O‘quvchilar hisoboti</h1>
+        <p class="muted">Bu bo‘lim faqat administrator uchun.</p>
+        <div id="adminData" class="admin-data"></div>
+      </section>
+    </main>
+
+    <footer>JAVA MASTER · Bilim — kelajak kaliti</footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
