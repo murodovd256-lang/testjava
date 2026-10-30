@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #090811;
+  --panel: #151222;
+  --panel2: #1d1830;
+  --purple: #9b5cff;
+  --purple2: #7138d5;
+  --white: #f7f4ff;
+  --muted: #a49bb8;
+  --border: #302744;
+  --green: #46d69b;
+  --red: #ff647c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 80% 0%, #28164b 0, transparent 35%),
+    var(--bg);
+  color: var(--white);
+  font-family: Inter, sans-serif;
+  min-height: 100vh;
+}
+
+button, input { font: inherit; }
+
+.app {
+  width: min(100% - 32px, 1050px);
+  margin: auto;
+}
+
+.topbar {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.logo span { color: var(--purple); }
+
+.user-label { color: var(--muted); font-size: 14px; }
+
+main { min-height: 75vh; padding: 45px 0; }
+
+.screen { animation: appear .3s ease; }
+.hidden { display: none !important; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.welcome {
+  max-width: 650px;
+  margin: 65px auto;
+  text-align: center;
+}
+
+.hero-icon {
+  width: 82px;
+  height: 82px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 25px;
+  border-radius: 25px;
+  background: #26183f;
+  font-size: 42px;
+  box-shadow: 0 0 45px #873cff33;
+}
+
+.eyebrow {
+  color: var(--purple);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.15;
+  margin: 12px 0;
+}
+
+.welcome h1 span { color: var(--purple); }
+
+.muted { color: var(--muted); line-height: 1.7; }
+
+.start-form {
+  display: flex;
+  gap: 10px;
+  margin: 30px auto;
+  max-width: 500px;
+}
+
+input {
+  min-width: 0;
+  flex: 1;
+  padding: 16px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 12px;
+  color: white;
+  outline: none;
+}
+
+input:focus { border-color: var(--purple); }
+
+.primary-btn, .small-btn, .back-btn {
+  border: 0;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.primary-btn {
+  background: linear-gradient(120deg, var(--purple2), var(--purple));
+  color: white;
+  padding: 15px 22px;
+}
+
+.primary-btn:hover { filter: brightness(1.15); transform: translateY(-2px); }
+.primary-btn:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+
+.small-btn, .back-btn {
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  color: var(--white);
+  padding: 11px 15px;
+}
+
+.dashboard-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 25px 0 18px;
+}
+
+.stat-card, .lesson-card, .question-card, .result-card {
+  background: linear-gradient(145deg, var(--panel), #100d1a);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.stat-card span { color: var(--muted); font-size: 13px; display: block; }
+.stat-card strong { font-size: 25px; display: block; margin-top: 9px; }
+
+.progress-track {
+  width: 100%;
+  height: 9px;
+  border-radius: 20px;
+  background: #292239;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.progress-track div {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--purple2), #c18aff);
+  transition: width .3s;
+}
+
+.lesson-list { display: grid; gap: 10px; }
+
+.lesson-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.lesson-card:hover { border-color: var(--purple); transform: translateY(-2px); }
+.lesson-card.locked { opacity: .45; cursor: not-allowed; }
+.lesson-card h3 { font-size: 15px; margin: 0 0 7px; }
+.lesson-card p { margin: 0; color: var(--muted); font-size: 12px; }
+.lesson-status { color: var(--purple); font-size: 13px; white-space: nowrap; }
+
+.lesson-heading { margin: 25px 0; }
+.lesson-content {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 25px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.lesson-content h3 { color: #c99fff; }
+.lesson-content pre, .code-area pre {
+  white-space: pre-wrap;
+  overflow-x: auto;
+  background: #08070e;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  color: #d7c4ff;
+  line-height: 1.6;
+}
+
+.test-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question-card { max-width: 750px; margin: 25px auto; }
+.question-card h2 { font-size: 22px; line-height: 1.5; }
+
+.options { display: grid; gap: 10px; margin: 25px 0; }
+
+.option {
+  width: 100%;
+  text-align: left;
+  padding: 15px;
+  color: white;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.option:hover, .option.selected { border-color: var(--purple); background: #33214f; }
+
+.code-area { margin: 20px 0; }
+.code-area pre { color: #a9e9ca; }
+
+.result-card { max-width: 550px; text-align: center; margin: 35px auto; padding: 40px 25px; }
+.result-icon { font-size: 50px; color: var(--green); }
+.result-card h1 { color: var(--purple); font-size: 55px; }
+.result-card p { color: var(--muted); line-height: 1.7; }
+
+.admin-data { display: grid; gap: 12px; margin-top: 20px; }
+.admin-student { padding: 18px; background: var(--panel); border: 1px solid var(--border); border-radius: 14px; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 25px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  main { padding: 25px 0; }
+  .start-form { flex-direction: column; }
+  .stats { grid-template-columns: 1fr; }
+  .dashboard-heading { align-items: flex-start; }
+  .lesson-card { padding: 15px; }
+}
